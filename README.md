@@ -114,6 +114,9 @@ hdfc.check_balance()
 +---------------------+                +---------------------+
 ```
 
+##note 
+the object can acess both method and function of class
+
 </details>
 
 
@@ -192,9 +195,111 @@ class method and variable can be accessed by its object
 
 <details>
   <summary>encapsulation</summary>
+
+  ```
+class Atm:
+  def __init__(self):
+    self.pin=""
+    self.balance=0
+```
+
+
+  ## instance variable :-
+  whatever varaible we are creating inside consructor are called instance variable
+
+  the value of instance variable is different for differnt object
+
+  eg in above code ebery object will have separeate pin and balance
+
+  ## note
+  the object can acess both variable and function of class
+
+  ```
+sbi.balance="eeeewjdsj"
+sbi.deposite()
+
+the code will crash because some random string value is set
+
+so its not good pratice to show all variable
+
+so to make the variable private we use __ before a variable
+
+
+```
+
+```
+class Atm:
+  def __init__(self):
+    self.__pin=""
+    self.__balance=0
+
+  def create_pin(self):
+    self.__pin=input("enter your pin")
+    print("pin created successfully")
+
+```
+
+suppose you junior programmer wants to acess
+use getter and setter
+
+```
+class Atm:
+  def __init__(self):
+    self.__pin=""
+    self.__balance=0
+
+self.__menu()
+
+def get_pin(self):
+  return self.__pin
+
+def set_pin(self)
+  if type(new_pin)==str:                //we can validate  value when other programmer sends improper dataType
+    self.__pin=new_pin
+    print("pin changed")
+  else:
+    print("not allowed")
+```
+## what we did above
+
+need for encapsulation
+
+private attributes
+
+getter and setter methods
+
+
+
 </details>
 
 
+<details>
+
+  <summary>Refernce variable  1:50:23 </summary>
+  
+
+  created a object     
+  
+  Atm()                object is created and got a memory location but the location value is not stored in any varuiaable so ites lost
+
+
+  sbi=Atm()          in this the oblect memory location is stored in sbi variable
+
+  # pass by refrence
+
+  ```
+class Customer:
+    def __init__(self,name):
+        self.name=name
+
+def greet(customer):
+    print("Hello",customer.name)
+
+cust=Customer("nitsh")
+greet(cust)
+```
+
+</details>
 
 
 
