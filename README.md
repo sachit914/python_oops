@@ -189,10 +189,10 @@ self contains sbi object address
 class method and variable can be accessed by its object
 </details>
 
+
 <details>
   <summary>encapsulation</summary>
 </details>
-
 
 
 
