@@ -1,4 +1,5 @@
 # python_oops
+https://www.youtube.com/watch?v=Mf2RdpEiXjU&t=2111s
 
 <details>
   <summary>basic class creation and object declaration </summary>
@@ -114,6 +115,91 @@ hdfc.check_balance()
 ```
 
 </details>
+
+
+<details>
+
+  <summary>Constructor</summary>
+
+## when to use constructor
+
+constructor are used when you dont want to give specific control to user
+eg when app opens automatically constructor are triggred
+eg when app opened gps is oned
+
+eg
+Database Connection:
+
+Initialize a connection to a database upon creating a new DatabaseConnection instance.
+User Profile:
+
+Set default values, such as a profile picture, when creating a new UserProfile.
+Music Player:
+
+Load the last played song or a default playlist upon instantiating a MusicPlayer.
+Shopping Cart:
+
+Initialize a new ShoppingCart with an empty list of products or offer a welcome gift for first-time users.
+GPS Service:
+
+Turn on the GPS automatically when a GPSService instance is created.
+  
+</details>
+
+
+<details>
+  <summary>self</summary>
+  
+```
+class Demo:
+    def __init__(self):
+        self.pin=""
+        print(id(self))
+
+ob1=Demo()
+ob2=Demo()
+
+id(ob1) == self which means ob1 is self
+```
+  ### note
+  id(ob1) == self which means ob1 is self
+
+
+  ```
+class Atm:
+  def __init__(self):
+    self.pin=""
+    self.balance=0
+
+  def create_pin(self):
+    self.pin=input("enter your pin")
+    print("pin created successfully")
+
+ 
+```
+
+def create_pin(self)
+  self.pin is same as sbi.pin
+
+  
+sbi.create_pin() is same like self.create_pin()
+
+self contains sbi object address
+
+class method and variable can be accessed by its object
+</details>
+
+<details>
+  <summary>encapsulation</summary>
+</details>
+
+
+
+
+
+
+
+
 
 
 
