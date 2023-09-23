@@ -68,7 +68,7 @@ class Atm:
 
 ```
 ## class diagram
-
+```
 +----------------------------+
 |           Atm              |
 +----------------------------+
@@ -82,7 +82,7 @@ class Atm:
 | + withdraw(): None         |
 | + check_balance(): None    |
 +----------------------------+
-
+```
 
 ```
 #python shell
@@ -103,7 +103,7 @@ hdfc.check_balance()
 ```
 
 ## object diagram
-
+```
 +---------------------+                +---------------------+
 |    Object: sbi      |                |    Object: hdfc     |
 |    Class: Atm       |                |    Class: Atm       |
@@ -111,7 +111,7 @@ hdfc.check_balance()
 | pin: "1234"         |                | pin: "12345"        |
 | balance: 30         |                | balance: 0          |
 +---------------------+                +---------------------+
-
+```
 
 </details>
 
