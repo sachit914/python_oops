@@ -294,13 +294,100 @@ class Customer:
 
 def greet(customer):
     print("Hello",customer.name)
+    print(id(customer))
 
 cust=Customer("nitsh")
 greet(cust)
+print(id(cust))
+```
+
+![o1](https://github.com/sachit914/python_oops/assets/137917052/c91ae341-bcaa-408c-b2c9-78a85df384ab)
+
+
+## can return object
+
+  ```
+class Customer:
+    def __init__(self,name):
+        self.name=name
+
+def greet(customer):
+    print("Hello",customer.name)
+
+    cust2=Customer("nitesh")
+    return cust2
+
+cust=Customer("Ankita")
+new_cust=greet(cust)
+print(new_cust.name)
+```
+
+
+
+
+  ```
+class Customer:
+    def __init__(self,name):
+        self.name=name
+
+def greet(customer):
+    print(id(customer))
+    customer.name="Nithesh"
+    print(customer.name)                          //prints nithesh
+
+cust=Customer("Ankita")
+print(id=(cust))
+
+greet(cust)
+print(cust.name)                                 //prints nithesh
+```
+
+![o3](https://github.com/sachit914/python_oops/assets/137917052/1971a7af-cff9-482f-93ec-733bc5858673)
+
+
+# note 
+
+objects of class are mutable like lists ,dict
+
+# collection of objects
+
+```
+c1=customer("nithesh",34)
+c2=customer("ankita",45)
+c3=customer("neha",32)
+
+L=[c1,c2,c3]
+
+for i in L:
+  print(i.name)
 ```
 
 </details>
 
+
+
+<details>
+
+  <summary>static   2:16:00 </summary>
+
+# instance variable and static variable 
+
+### instance variable
+instance variable are those varible where every object has different value
+
+<strong> instance variable are always inside constructor </strong>
+
+eg pin, balance for atm object
+
+### static or class variable
+
+<strong> class variable are created outside constructor </strong>
+static varible are those varible whose value  is same for all objects
+
+eg bank ifsc code 
+eg serial no. for customer
+
+</details>
 
 
 
