@@ -375,22 +375,76 @@ for i in L:
 ### instance variable
 instance variable are those varible where every object has different value
 
+### note
 **instance variable are always inside constructor**
 
 eg pin, balance for atm object
 
 ### static or class variable
 
+### note
 **class variable are created outside constructor**
+
 static varible are those varible whose value  is same for all objects
 
 eg bank ifsc code 
 eg serial no. for customer
 
+
+```
+class Atm:
+
+  # static/class variable
+  counter=1
+
+  def __init__(self):
+    #instance variable
+    self.pin=""
+    self.balance=0
+    print(id(self))
+    self.sno=Atm.counter
+    Atm.counter=Atm.counter+1
+```
+
+```
+class Atm:
+
+  # static/class variable
+  counter=1
+
+  def __init__(self):
+    #instance variable
+    self.pin=""
+    self.balance=0
+    print(id(self))
+    self.sno=Atm.counter
+    Atm.counter=Atm.counter+1
+
+    # self.menu()
+
+//staticmethods are  those methods where we can access the methods without creating objects
+  @staticmethod                                             
+  def get_counter():                                        
+    return Atm.counter
+```
+
+```
+Atm.get_counter()
+```
+
 </details>
 
 
+<details>
 
+  <summary>
+    Inhertitance
+  </summary>
+
+![o4](https://github.com/sachit914/python_oops/assets/137917052/3353bec5-6d38-4e6b-84a8-3de10c22be96)
+
+  
+</details>
 
 
 
