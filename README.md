@@ -443,9 +443,268 @@ Atm.get_counter()
 
 ![o4](https://github.com/sachit914/python_oops/assets/137917052/3353bec5-6d38-4e6b-84a8-3de10c22be96)
 
-  
+
+# agregration
+
+  ![o5](https://github.com/sachit914/python_oops/assets/137917052/bb82ce9e-2be2-4fc1-9db7-926f3e39d943)
+
+```
+class Customer:
+    def __init__(self,name,gender,address):
+        self.name=name
+        self.gender=gender
+        self.address=address
+
+    def edit_profile(self,new_name,new_city,new_pin,new_state):
+        self.name=new_name
+        self.address.change_address(new_city,new_pin,new_state)
+
+
+class Address:
+    def __init__(self,city,pincode,state):
+        self.city=city
+        self.pincode=pincode
+        self.state=state
+
+    def change_address(self,new_city,new_pin,new_state):
+        self.city=new_city
+        self.pincode=new_pin
+        self.state=new_state
+
+
+add=Address("kolkata",700156,"delhi")
+cust=Customer("nithesh","male",add)
+
+cust.edit_profile("jack","gurgaon",122011,"haryana")
+
+print(cust.address.pincode)
+print(cust.address.city)
+```
+
+# inhertitance
+
+![o6](https://github.com/sachit914/python_oops/assets/137917052/fddfd901-50f2-4e00-8aef-1754a92e4d3a)
+
+suppose we plan of creating class but we see that the class can have function which we can inherit rather than repeating the same code logic
+
+in above class diagram login and registration feature are same so we can basically inherit the functionality rather than re coding the logic
+
+```
+class User:
+    def login(Self):
+        print("Login")
+
+    def register(self):
+        print("Register")
+
+class Student(User):
+    def enroll(self):
+        print("enroll")
+
+    def review(self):
+        print("review")
+
+stu1=Student()
+stu1.enroll()
+stu1.review()
+stu1.login()
+stu1.register()
+```
+
+
+# inheriting constructor  2:57:16
+
+```
+class Phone:
+    def __init__(self,price,brand,camera):
+        print("Inside phone constructor")
+        self.price=price
+        self.brand=brand
+        self.camera=camera
+
+class SmartPhone(Phone):
+    pass
+
+s=SmartPhone(20000,"Apple",13)
+print(s.brand)
+```
+
+# inheriting Private Members
+```
+class Phone:
+    def __init__(self,price,brand,camera):
+        print("Inside phone constructor")
+        self.price=price
+        self.__brand=brand
+        self.camera=camera
+
+class SmartPhone(Phone):
+    pass
+
+s=SmartPhone(20000,"Apple",13)
+print(s.__brand)
+```
+we cant access parent call hidden values
+
+
+# Polymorphism  3:01:02
+
+```
+class Phone:
+    def __init__(self,price,brand,camera):
+        print("Inside phone constructor")
+        self.price=price
+        self.brand=brand
+        self.camera=camera
+
+    def buy(self):
+        print("Buying A phone")
+
+class SmartPhone(Phone):
+    def buy(self):
+        print("Buying a smatphone")                        //this buy function executes(also known as method overriding)
+
+
+s=SmartPhone(20000,"Apple",13)
+s.buy
+```
+note 
+
+polymorphism has method Overriding 
+
+method Overloading
+
+operator Overloading
+
+```
+class Parent:
+    def __init__(self,num):
+        self.__num=num
+    
+    def get_num(self):
+        return self.__num
+    
+class Child(Parent):
+    def __init__(self,val,num):                                //child constructor is executed first
+        self.__val=val
+    
+    def get_val(self):
+        return self.__val
+    
+son=Child(100,10)
+print("Parent: Num",son.get_num())          // we get error because parent constructor is not initialized ,there is no get_nun
+```
+
+if child dont have is own constructor then parent constructor is used
+
+
+# super keyword  3:10:24
+
+we use super keyword to invoke parent method and constructor
+ ```
+class Phone:
+    def __init__(self,price,brand,camera):
+        print("Inside phone constructor")
+        self.__price=price
+        self.brand=brand
+        self.camera=camera
+
+    def buy(self):                                                      control comes here          <-----|
+        print("Buying a phone")                                                                           |
+                                                                                                          |
+class SmartPhone(Phone):                                                                                  |
+    def buy(self):                                                                                        |
+        print("Buying a smartphone")                                                                      |
+        super().buy()                       //invoke parent buy method()   after this controll will go to |
+
+s=SmartPhone(200000,"Apple",13)
+
+s.buy()
+```
+
+output
+
+Inside phone constructor
+
+Buying a smartphone
+
+Buying a phone
+
+
+```
+class SmartPhone(Phone):                                                                                  
+    def buy(self):                                                                                        
+        print("Buying a smartphone")                                                                                           
+s=SmartPhone(200000,"Apple",13)
+
+s.buy()
+s.super().buy()                                       doesnt work
+```
+note super key word dosent work out of class
+
+by using super key word we can access only parents method and constructor 
+
+we cant access attribute
+
+# invoking parents constructor using super keyword
+```
+
+class Phone:
+    def __init__(self,price,brand,camera):
+        print("Inside Phone Constructor")
+        self.__price=price
+        self.brand=brand
+        self.camera=camera
+
+class SmartPhone(Phone):
+    def __init__(self,price,brand,camera,os,ram):
+        super().__init__(price,brand,camera)                       //super should be first line 
+        self.os=os
+        self.ram=ram
+        print("Inside smartphone constructor")
+
+s=SmartPhone(20000,"samsung",12,"Android",2)
+
+print(s.os)
+print(s.brand)
+```
+
+## note imp  3:15:00 
+how much child needs to do will be done in child 
+
+remaining will inherit from parent so no need to re code 
+
+
+## example
+
+```
+class Parent:
+    def __init__(self):
+        self.num=100
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        self.var=200
+
+    def show(self):
+        print(self.num)                 //son.num
+        print(self.var)
+
+son=Child()
+son.show()
+```
+
+
 </details>
 
+<details>
+
+  <summary>Types of Inheritance  3.22.16</summary>
+
+
+  
+</details>
 
 
 
