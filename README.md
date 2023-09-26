@@ -375,13 +375,13 @@ for i in L:
 ### instance variable
 instance variable are those varible where every object has different value
 
-<strong> instance variable are always inside constructor </strong>
+**instance variable are always inside constructor**
 
 eg pin, balance for atm object
 
 ### static or class variable
 
-<strong> class variable are created outside constructor </strong>
+**class variable are created outside constructor**
 static varible are those varible whose value  is same for all objects
 
 eg bank ifsc code 
