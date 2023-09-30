@@ -702,11 +702,124 @@ son.show()
 
   <summary>Types of Inheritance  3.22.16</summary>
 
+1 single level :child class can acess parent class elements
 
-  
+2 multi level : child class can access parent class as well as parents parent classs element ,parent class can acess parents parent call values
+
+3 hierarchical : a parent can have multiple child class 
+
+4 multiple a class can have multiple parents
+
+5) hybrid inheritance : is cobination of any inheritance
+
+
+
+![24](https://github.com/sachit914/python_oops/assets/137917052/1f63ec50-e43e-44b2-a106-dd6baa3e436c)
+
+
+![25](https://github.com/sachit914/python_oops/assets/137917052/37a469a4-a022-48f0-a815-b782ba4354f4)
+
+
+multiple inheirtance is only available in python not in java
+
+```
+# multiple
+
+class Phone():
+  def __init__(self,price,brand,camera):
+    print("inside phone constructor")
+    self.__price=price
+    self.brand=brand
+    self.camera=camera
+
+  def buy(self):
+    print("Buying a phone")
+
+class Product:
+  def review(Self):
+    print("customer review")
+
+class  SmartPhone(Phone,Product):                   first phone constructor is called if phone dont have then product constructor is called
+  pass
+
+s=SmartPhone(20000,"apple",12)
+
+s.buy()
+s.review()
+
+
+```
+
+conflict
+```
+# multiple      mro example
+# -------------------------------------------------->which buy method will execute first
+
+class Phone():
+  def __init__(self,price,brand,camera):
+    print("inside phone constructor")
+    self.__price=price
+    self.brand=brand
+    self.camera=camera
+
+  def buy(self):                   --------------------------->buy method
+    print("Buying a phone")
+
+class Product:
+  def buy(Self):                       -------------------->buy method
+    print("buy")
+
+class  SmartPhone(Phone,Product):         since phone is written first in parameter the buy method in phone executes first           
+  pass
+
+s=SmartPhone(20000,"apple",12)
+
+s.buy()
+s.review()
+
+```
+## note 
+in which order we inherit we give priority in same way
+
+
 </details>
 
 
+<details>
+  <summary>
+    method and operator overloading     3:35:41
+  </summary>
+
+
+## in polymorphism we 
+1. method overriding
+2. method overloading
+3. operator overloading
+
+## method overloading 
+
+Method overloading is a programming concept where two or more methods in the same class have the same name but different parameters.
+
+```
+class Geometry:
+  def area(self,radius):
+    return 3.14*radius*radius
+
+  def area(self,l,b):                               method overloading works only on java
+    return l*b
+
+obj=Geometry()
+print(obj.area(4))
+
+
+```
+
+## operator overloading
+
+ With operator overloading, you can define how an operator behaves for user-defined data types. For instance, if you've defined a Vector class, you can define the behavior of the + operator to add two vectors together.
+
+
+</details>
 
 
 
